@@ -11,7 +11,11 @@
 |
 */
 
-Route::get('/', function()
+Route::get('/', 'AppController@index');
+
+Route::group(array('before' => 'admin-auth','prefix' => 'admin'), function()
 {
-	return View::make('hello');
+
 });
+
+// Route::get('/', array('as' => 'admin', 'uses' => 'DashboardController@getIndex'));
