@@ -54,7 +54,7 @@ Route::group(array('prefix' => 'auth'), function()
 
 Route::get('login', array('before' => 'login', function()
 {
-	return Redirect::to('/test');
+	return Redirect::to('/');
 }));
 
 Route::get('logout', array('before' => 'logout', function()
@@ -72,3 +72,6 @@ Route::group(array('before' => 'admin-auth','prefix' => 'admin'), function()
 
 });
 
+
+
+Route::resource('posts', 'PostsController');
