@@ -37,19 +37,15 @@ class AppRefreshCommand extends Command {
 	 */
 	public function fire()
 	{
-		if ($this->confirm('Are you sure you want to refresh your installation? You will loose all data stored in the database! [yes|no]'))
-		{
-			// First reset data
-			echo 'Reseting DB...'.PHP_EOL;
-			$this->call('migrate:reset');
-			echo 'Done.'.PHP_EOL.PHP_EOL;
 
-			// Now install it again
-			$this->call('app:install');
+		// First reset data
+		// echo 'Reseting DB...'.PHP_EOL;
+		$this->call('migrate:reset');
+		// echo 'Done.'.PHP_EOL.PHP_EOL;
 
-			// And seed it
-			$this->call('app:seed');
-		}
+		// Now install it again
+		Artisan::call('app:install');
+
 	}
 
 	/**

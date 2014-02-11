@@ -7,12 +7,10 @@
 		"cartalyst/sentry": "v2.1.0",
 		"laravel/framework": "4.1.*"
 	},
-	
 	"require-dev": {
-		"way/generators": "dev-master",
-		"barryvdh/laravel-ide-helper": "1.*"
-		},
-
+	"way/generators": "dev-master",
+	"barryvdh/laravel-ide-helper": "1.*"
+	},
 	"autoload": {
 		"classmap": [
 			"app/commands",

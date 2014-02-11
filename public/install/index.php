@@ -157,7 +157,7 @@ if (preg_match('/Linux/',php_uname())){
 				<h3>Queue System</h3>
 				<div class="wizard-input-section">
 
-					
+
 					<div id="queue-beanstalkd" class="control-group">
 						<div class="row">
 							<div class="span3">
@@ -309,7 +309,6 @@ if (preg_match('/Linux/',php_uname())){
 						dataType: 'json',
 						success: function (data) {
 							if (data) {
-								
 								if (data.status == 'success') {
 									wizard.submitSuccess();
 								} else {

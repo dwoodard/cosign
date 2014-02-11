@@ -86,6 +86,29 @@ Route::filter('admin-auth', function()
 
 
 
+Route::filter('login', function () {
+	//logout of Sentry
+	if (!Sentry::check())
+	{
+		// Store the current uri in the session
+		Session::put('loginRedirect', Request::url());
+
+		// Redirect to the login page
+		// return Redirect::route('login');
+	}
+	
+
+});
+
+
+
+Route::filter('logout', function () {
+
+
+	//logout of Sentry
+	Sentry::logout();
+
+});
 
 
 
