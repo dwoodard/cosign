@@ -69,9 +69,17 @@ Route::get('logout', array('before' => 'logout', function()
 Route::group(array('before' => 'admin-auth','prefix' => 'admin'), function()
 {
 	Route::get('/', array('as' => 'admin', 'uses' => 'DashboardController@getIndex'));
+	// Route::resource('posts', 'PostsController');
+
+	Route::group(array('prefix' => 'posts'), function()
+	{
+		Route::get('/', array('as' => 'posts.index', 'uses' => 'PostsController@index'));
+		Route::get('create', array('as' => 'posts.create', 'uses' => 'PostsController@create'));
+		Route::post('/', array('as' => 'posts.store', 'uses' => 'PostsController@store'));
+		Route::get('{id}', array('as' => 'posts.show', 'uses' => 'PostsController@show'));
+		Route::get('{id}/edit',  array('as' => 'posts.edit', 'uses' => 'PostsController@edit'));
+		Route::patch('{id}',  array('as' => 'posts.update', 'uses' => 'PostsController@update'));
+		Route::delete('{id}/delete', array('as' => 'posts.destroy', 'uses' => 'PostsController@destroy'));
+	});
 
 });
-
-
-
-Route::resource('posts', 'PostsController');
